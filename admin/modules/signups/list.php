@@ -8,7 +8,7 @@
 	<table class="table table-striped">
 		<tr>
 			<th>Email</th>
-			<th>Signup_date</th>
+			<th>signupDate</th>
 			<th>Actions</th>
 		</tr>
 	<?php
@@ -23,20 +23,20 @@
 			<tr>
 				<td>
 					<?php 
-						echo $v['email'];
+						echo $v->email;
 					?>
 				
 				</td>
 				
 				<td>
 					<?php
-					echo $v['signup_date'];
+					echo $v->signupDate;
 					?>
 				</td>
 				<td>
-					<a class="btn btn-danger" href="?page=signups&action=delete&id=<?php echo $v['id'];?>">Delete</a>
+					<a class="btn btn-danger" href="?page=signups&action=delete&id=<?php echo $v->id;?>">Delete</a>
 				     |
-					<a class="btn btn-success" href="?page=signups&action=update&id=<?php echo $v['id'];?>">Update</a>
+					<a class="btn btn-success" href="?page=signups&action=update&id=<?php echo $v->id;?>">Update</a>
 				</td>
 			
 			</tr>

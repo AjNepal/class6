@@ -1,3 +1,24 @@
+<?php
+	if(count($e) > 0)
+	{
+	?>
+		<div class="alert-warning">
+		<ul>
+		<?php
+			foreach($e as $v)
+			{
+				?>
+				<li><?php echo $v;?></li>
+				
+			<?php	
+			}
+			
+		?>
+		</ul>
+		</div>
+		<?php
+	}
+?>
 <div class="box box-primary">
 	<div class="box-header with-border">
 		<h3 class="box-title">ADD/UPDATE FORM</h3>
@@ -6,11 +27,12 @@
 	<div class="box-body">
 		<div class="form-group">
 			<label>Email:</label>
-			<input class="form-control" type="text" name="email" value="<?php echo $f[0]['email'];?>"/>
+			<input class="form-control" type="text" name="email" value="<?php echo $f->email;?>"/>
 		</div>
 		<div class="form-group">
-			<label>Signup_date:</label>
-			<input class="form-control" type="date_picker" name="signup_date" value="<?php echo $f[0]['signup_date'];?>"/>
+			<label>signupDate:</label>
+			
+			<input data-date-format="yyyy/mm/dd" class="datepicker form-control" type="text" id="signup_date" name="signup_date" value="<?php echo $f->signupDate;?>"/>
 		</div>
 	</div>
 		
@@ -29,7 +51,7 @@
 				{
 					?>
 					<input type="hidden" name="action" value="update"/>
-					<input type="hidden" name="id" value="<?php echo $f[0]['id'];?>"/>
+					<input type="hidden" name="id" value="<?php echo $f->id;?>"/>
 					<input class="btn btn-success" type="submit" value="Update"/>
 					<?php
 				}
@@ -39,3 +61,9 @@
 
 
 </div>
+
+  <script>
+  $( function() {
+	//$("#signup_date").datepicker({ dateFormat: "yy-mm-dd" }).val()
+  } );
+  </script>
