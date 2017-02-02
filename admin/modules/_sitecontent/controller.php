@@ -1,8 +1,7 @@
 <?php
 	
-	
+	include_once("modules/sitecontent/model.php");
 	include_once("modules/sitecontent/service.php");
-	include_once("modules/sitecontent/validators.php");
 	class SiteContentController{
 								function execute()
 								{
@@ -11,14 +10,12 @@
 									switch($_REQUEST['action'])
 									{
 										case 'add':
-											
-													$e=$s->add();
-													if(count($e)==0)
-													{
-														ob_end_clean();
-														header('Location:index.php?page=sitecontent');
-														exit();
-													}				 
+											if( isset($_POST['title']) && isset($_POST['content'])){
+																		$s->add();
+																		$list=$s->getALL();
+																		include_once("modules/sitecontent/list.php");
+																		return;
+																	 }
 											//print_r($_POST);
 											include_once("modules/sitecontent/form.php");
 											break;
@@ -28,7 +25,7 @@
 											include_once("modules/sitecontent/list.php");
 											break;
 										case 'update':
-										    if(isset($_POST['title']) && isset($_POST['content']))
+										    if(isset($_POST['title']) && isset($_POST['image']) && isset($_POST['content']))
 											{
 												$s->update();
 												$list=$s->getAll();
