@@ -35,7 +35,11 @@
 					echo $v->title;
 					?>
 				</td>
-				<td><img width="100" src="images/boardmembers/<?php echo $v -> image; ?>"></td>
+				<td>
+					
+					<img width ='100'src="images/boardmembers/<?php echo $v->image;?>">
+				
+				</td>
 				<td>
 					<?php
 					echo $v->content;

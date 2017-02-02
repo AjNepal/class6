@@ -1,3 +1,22 @@
+<?php
+if(count($e)>0)
+{?>
+<div class="alert-warning">
+  <ul>
+  <?php
+  foreach($e as $v)
+  {
+	 
+	?>
+<li> <?php echo  $v; ?> </li>
+<?php
+  }
+?>
+ </ul>
+</div>
+<?php
+}
+?>
 <div class="box box-primary">
 	<div class="box-header with-border">
 		<h3 class="box-title">ADD/UPDATE FORM</h3>
@@ -12,13 +31,13 @@
 			<label>Title:</label>
 			<input class="form-control" type="text" name="title" value="<?php echo $f->title;?>"/>
 		</div>
-		<div class="form-group">
+		<div class="form-group" >
 			<label>Image:</label>
-			<input class="form-control" type="file" name="image" value="<?php echo $f->image;?>"/>
+			<input class="form-control" type="file" name="image" />
 		</div>
 		<div class="form-group">
 			<label>Content:</label>
-			<textarea class="form-control" rows="10" name="content"><?php echo $f->content;?></textarea>
+			<textarea id="mmm" name="content" rows="5" cols="100"><?php echo $f->content;?></textarea>
 		</div>
 	</div>
 		
@@ -47,11 +66,10 @@
 
 
 </div>
-<script type="text/javascript">
-	
-tinymce.init({
-  selector: 'textarea',
-  height: 200,
+ <script>
+  tinymce.init({
+  selector: '#mmm',
+  height: 500,
   theme: 'modern',
   plugins: [
     'advlist autolink lists link image charmap print preview hr anchor pagebreak',
@@ -71,4 +89,4 @@ tinymce.init({
     '//www.tinymce.com/css/codepen.min.css'
   ]
  });
-</script>
+  </script>
