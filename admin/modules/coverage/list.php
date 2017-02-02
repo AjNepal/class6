@@ -25,30 +25,30 @@
 			<tr>
 				<td>
 					<?php 
-						echo $v['location_name'];
+						echo $v->locationName;
 					?>
 				
 				</td>
 				
 				<td>
 					<?php
-					echo $v['lat'];
+					echo $v->lat;
 					?>
 				</td>
 				<td>
 					<?php
-					echo $v['lng'];
+					echo $v->lng;
 					?>
 				</td>
 				<td>
 					<?php
-					echo $v['infowindow_text'];
+					echo $v->infowindowText;
 					?>
 				</td>
 				<td>
-					<a class="btn btn-danger" href="?page=coverage&action=delete&id=<?php echo $v['id'];?>">Delete</a>
+					<a class="btn btn-danger" href="?page=coverage&action=delete&id=<?php echo $v->id;?>">Delete</a>
 				     |
-					<a class="btn btn-success" href="?page=coverage&action=update&id=<?php echo $v['id'];?>">Update</a>
+					<a class="btn btn-success" href="?page=coverage&action=update&id=<?php echo $v->id;?>">Update</a>
 				</td>
 			
 			</tr>
