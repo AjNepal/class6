@@ -24,22 +24,22 @@
 			<tr>
 				<td>
 					<?php
-					echo $v->title;
+					echo $v['title'];
 					?>
 				</td>
 				<td>
-				<img width="100" src="images/sitecontent/<?php echo $v->image;?>" />
+				<img width="100" src="images/sitecontent/<?php echo $v['image'];?>" />
 
 				</td>
 				<td>
 					<?php
-					echo $v->content;
+					echo $v['content'];
 					?>
 				</td>
 				<td>
-					<a class="btn btn-danger" href="?page=sitecontent&action=delete&id=<?php echo $v->id;?>">Delete</a>
+					<a class="btn btn-danger" href="?page=sitecontent&action=delete&id=<?php echo $v['id'];?>">Delete</a>
 				     |
-					<a class="btn btn-success" href="?page=sitecontent&action=update&id=<?php echo $v->id;?>">Update</a>
+					<a class="btn btn-success" href="?page=sitecontent&action=update&id=<?php echo $v['id'];?>">Update</a>
 				</td>
 			
 			</tr>
