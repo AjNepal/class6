@@ -1,6 +1,6 @@
 <?php
 	
-	include_once("modules/coverage/model.php");
+	include_once("modules/coverage/validators.php");
 	include_once("modules/coverage/service.php");
 	class CoverageController{
 								function execute()
@@ -10,13 +10,17 @@
 									switch($_REQUEST['action'])
 									{
 										case 'add':
-											if(isset($_POST['location_name']) && isset($_POST['lat']) && isset($_POST['lng']) && isset($_POST['infowindow_text'])){
-																		$s->add();
-																		$list=$s->getALL();
-																		include_once("modules/coverage/list.php");
-																		return;
-																	 }
-											print_r($_POST);
+											
+													$e=$s->add();
+													if(count($e)==0)
+													{
+														ob_end_clean();
+														header('Location:index.php?page=coverage');
+														exit();
+													}		
+																		
+											
+											//print_r($_POST);
 											include_once("modules/coverage/form.php");
 											break;
 										case 'delete':
@@ -25,13 +29,15 @@
 											include_once("modules/coverage/list.php");
 											break;
 										case 'update':
-										    if(isset($_POST['location_name'] )&& isset($_POST['lat']) && isset($_POST['lng']) && isset($_POST['infowindow_text']))
-											{
-												$s->update();
-												$list=$s->getAll();
-												include_once("modules/coverage/list.php");
-												return;
-											}
+										    
+												$e=$s->update();
+												if(count($e)==0)
+													{
+														ob_end_clean();
+														header('Location:index.php?page=coverage');
+														exit();
+													}	
+											
 											$f=$s->getById($_REQUEST['id']);
 											include_once("modules/coverage/form.php");
 										
