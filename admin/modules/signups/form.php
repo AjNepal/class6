@@ -64,6 +64,6 @@
 
   <script>
   $( function() {
-	//$("#signup_date").datepicker({ dateFormat: "yy-mm-dd" }).val()
+	$("#signup_date").datepicker({format: 'yyyy-mm-dd'});
   } );
   </script>
