@@ -186,7 +186,7 @@
     </div>
     <div class="footer_btm">
       <div class="wrap">
-        <h2>Copyright &copy; 2013 Stutsman Rural Water. All Rights Reserved.</h2>
+        <h2>Copyright &copy; 2017. All Rights Reserved.</h2>
       </div>
     </div>
   </div>
