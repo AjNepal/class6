@@ -8,6 +8,13 @@
 class DAOFactory{
 	
 	/**
+	 * @return TblAdminDAO
+	 */
+	public static function getTblAdminDAO(){
+		return new TblAdminMySqlExtDAO();
+	}
+
+	/**
 	 * @return TblBannerDAO
 	 */
 	public static function getTblBannerDAO(){

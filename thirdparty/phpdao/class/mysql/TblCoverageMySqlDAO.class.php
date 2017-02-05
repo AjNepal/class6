@@ -3,7 +3,7 @@
  * Class that operate on table 'tbl_coverage'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2017-01-27 07:51
+ * @date: 2017-02-03 06:55
  */
 class TblCoverageMySqlDAO implements TblCoverageDAO{
 
@@ -57,13 +57,13 @@ class TblCoverageMySqlDAO implements TblCoverageDAO{
  	 * @param TblCoverageMySql tblCoverage
  	 */
 	public function insert($tblCoverage){
-		$sql = 'INSERT INTO tbl_coverage (location_name, lat, lng, infowindo_text) VALUES (?, ?, ?, ?)';
+		$sql = 'INSERT INTO tbl_coverage (location_name, lat, lng, infowindow_text) VALUES (?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($tblCoverage->locationName);
 		$sqlQuery->set($tblCoverage->lat);
 		$sqlQuery->set($tblCoverage->lng);
-		$sqlQuery->set($tblCoverage->infowindoText);
+		$sqlQuery->set($tblCoverage->infowindowText);
 
 		$id = $this->executeInsert($sqlQuery);	
 		$tblCoverage->id = $id;
@@ -76,13 +76,13 @@ class TblCoverageMySqlDAO implements TblCoverageDAO{
  	 * @param TblCoverageMySql tblCoverage
  	 */
 	public function update($tblCoverage){
-		$sql = 'UPDATE tbl_coverage SET location_name = ?, lat = ?, lng = ?, infowindo_text = ? WHERE id = ?';
+		$sql = 'UPDATE tbl_coverage SET location_name = ?, lat = ?, lng = ?, infowindow_text = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($tblCoverage->locationName);
 		$sqlQuery->set($tblCoverage->lat);
 		$sqlQuery->set($tblCoverage->lng);
-		$sqlQuery->set($tblCoverage->infowindoText);
+		$sqlQuery->set($tblCoverage->infowindowText);
 
 		$sqlQuery->setNumber($tblCoverage->id);
 		return $this->executeUpdate($sqlQuery);
@@ -118,8 +118,8 @@ class TblCoverageMySqlDAO implements TblCoverageDAO{
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByInfowindoText($value){
-		$sql = 'SELECT * FROM tbl_coverage WHERE infowindo_text = ?';
+	public function queryByInfowindowText($value){
+		$sql = 'SELECT * FROM tbl_coverage WHERE infowindow_text = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -147,8 +147,8 @@ class TblCoverageMySqlDAO implements TblCoverageDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByInfowindoText($value){
-		$sql = 'DELETE FROM tbl_coverage WHERE infowindo_text = ?';
+	public function deleteByInfowindowText($value){
+		$sql = 'DELETE FROM tbl_coverage WHERE infowindow_text = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -168,7 +168,7 @@ class TblCoverageMySqlDAO implements TblCoverageDAO{
 		$tblCoverage->locationName = $row['location_name'];
 		$tblCoverage->lat = $row['lat'];
 		$tblCoverage->lng = $row['lng'];
-		$tblCoverage->infowindoText = $row['infowindo_text'];
+		$tblCoverage->infowindowText = $row['infowindow_text'];
 
 		return $tblCoverage;
 	}

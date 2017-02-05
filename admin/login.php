@@ -1,18 +1,36 @@
 <?php 
+error_reporting(0);
+error_reporting(E_ERROR);
+
 session_start();
+
+include_once("../thirdparty/phpdao/include_dao.php");
+
 if(!isset($_SESSION['n'])){
 
-      if($_POST['user_name'] == "a" && $_POST['password'] == "a")
+      //$dao = DAOFactory::getTblAdminDAO();
+      //$l = $dao -> readRow($sql);
+    if(isset($_POST['user_name'])){
+      $sql = "SELECT * FROM tbl_admin WHERE username = ? AND password = ?";
+      $q = new SqlQuery($sql);
+      $q->set($_POST['user_name']);
+      $q->set(md5($_POST['password']));
+      $l = QueryExecutor::execute($q);
+
+      if(count($l) > 0)
       {
 
-         $_SESSION['n'] = $_POST['user_name'];
+         //$_SESSION['n'] = $_POST['user_name'];
+          $_SESSION['n'] = $l[0];
 
          header("Location:index.php?page=dashboard");
          exit();
       }
       else{
-        echo "Login Failed";
+        //echo "Login Failed";
+        $msg = "Login Failed";
       }
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -48,7 +66,7 @@ if(!isset($_SESSION['n'])){
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg"><?php echo $msg; ?></p>
 
     <form action="" method="post">
       <div class="form-group has-feedback">

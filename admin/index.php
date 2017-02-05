@@ -1,4 +1,7 @@
-<?php 
+<?php
+error_reporting(0);
+error_reporting(E_ERROR);
+
 ob_start();
     session_start();
     

@@ -9,6 +9,10 @@
 	require_once('class/core/ArrayList.class.php');
 	require_once('class/dao/DAOFactory.class.php');
  	
+	require_once('class/dao/TblAdminDAO.class.php');
+	require_once('class/dto/TblAdmin.class.php');
+	require_once('class/mysql/TblAdminMySqlDAO.class.php');
+	require_once('class/mysql/ext/TblAdminMySqlExtDAO.class.php');
 	require_once('class/dao/TblBannerDAO.class.php');
 	require_once('class/dto/TblBanner.class.php');
 	require_once('class/mysql/TblBannerMySqlDAO.class.php');

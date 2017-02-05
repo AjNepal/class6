@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2017-01-27 07:52
+ * @date: 2017-02-03 06:56
  */
 interface TblCoverageDAO{
 
@@ -57,7 +57,7 @@ interface TblCoverageDAO{
 
 	public function queryByLng($value);
 
-	public function queryByInfowindoText($value);
+	public function queryByInfowindowText($value);
 
 
 	public function deleteByLocationName($value);
@@ -66,7 +66,7 @@ interface TblCoverageDAO{
 
 	public function deleteByLng($value);
 
-	public function deleteByInfowindoText($value);
+	public function deleteByInfowindowText($value);
 
 
 }
